@@ -26,7 +26,7 @@ public class IndexRoute implements Route {
 
     @Override
     public Object handle(Request request, Response response) throws Exception {
-        return "<h2><a href=\"httpss://github.com/pkrok01/Redirect\">Config Redirect</a></h2>" +
+        return "<h2><a href=\"https://github.com/pkrok01/Redirect\">Config Redirect</a></h2>" +
                 "<p>Terribly built, but get's the job done</p>" +
                 "<h3>Paths that work (based on DiscordSRV's directory):</h3>" +
                 "<p>https://config.pkrok.me/ORG/PROJECT/BRANCH/FILE/LANG/OPTION</p>" +
