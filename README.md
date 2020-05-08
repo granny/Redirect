@@ -1,0 +1,2 @@
+# Redirect
+config option redirect
