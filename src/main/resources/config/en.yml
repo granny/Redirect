@@ -1,0 +1,4 @@
+# Where Host should listen for connections
+Bind:
+  IP: 0.0.0.0
+  Port: 4567
