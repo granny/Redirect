@@ -1,6 +1,6 @@
 /*
  * Redirect - A redirect web server for DiscordSRV's wiki
- * Copyright (C) 2020 pkrok01 "granny"
+ * Copyright (C) 2020 granny
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,13 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package me.pkrok.redirect;
+package dev.granny.redirect;
 
 import github.scarsz.configuralize.DynamicConfig;
 import github.scarsz.configuralize.Language;
 import github.scarsz.configuralize.ParseException;
-import me.pkrok.redirect.route.GetConfigRoute;
-import me.pkrok.redirect.route.IndexRoute;
+import dev.granny.redirect.route.GetConfigRoute;
+import dev.granny.redirect.route.IndexRoute;
 import spark.Request;
 import spark.Response;
 

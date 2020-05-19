@@ -1,6 +1,6 @@
 /*
  * Redirect - A redirect web server for DiscordSRV's wiki
- * Copyright (C) 2020 pkrok01 "granny"
+ * Copyright (C) 2020 granny
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package me.pkrok.redirect.route;
+package dev.granny.redirect.route;
 
 import spark.Request;
 import spark.Response;
@@ -26,29 +26,29 @@ public class IndexRoute implements Route {
 
     @Override
     public Object handle(Request request, Response response) throws Exception {
-        return "<h2><a href=\"https://github.com/pkrok01/Redirect\">Config Redirect</a></h2>" +
+        return "<h2><a href=\"https://github.com/granny/Redirect\">Config Redirect</a></h2>" +
                 "<p>Terribly built, but get's the job done</p>" +
                 "<h3>Paths that work (based on DiscordSRV's directory):</h3>" +
-                "<p>https://config.pkrok.me/ORG/PROJECT/BRANCH/FILE/LANG/OPTION</p>" +
+                "<p>https://config.granny.dev/ORG/PROJECT/BRANCH/FILE/LANG/OPTION</p>" +
                 "<pre>(Full Path)</pre>" +
-                "<p>https://config.pkrok.me/BRANCH/FILE/LANG/OPTION</p>" +
+                "<p>https://config.granny.dev/BRANCH/FILE/LANG/OPTION</p>" +
                 "<pre>(Assuming ORG=\"DiscordSRV\", PROJECT=\"DiscordSRV\")</pre>" +
-                "<p>https://config.pkrok.me/BRANCH/FILE/OPTION</p>" +
+                "<p>https://config.granny.dev/BRANCH/FILE/OPTION</p>" +
                 "<pre>(Assuming ORG=\"DiscordSRV\", PROJECT=\"DiscordSRV\", LANG=\"en\")</pre>" +
-                "<p>https://config.pkrok.me/FILE/OPTION</p>" +
+                "<p>https://config.granny.dev/FILE/OPTION</p>" +
                 "<pre>(Assuming ORG=\"DiscordSRV\", PROJECT=\"DiscordSRV\", LANG=\"en\", BRANCH=\"master\")</pre>" +
                 "<h3>Examples:</h3>" +
-                "<a href=\"https://config.pkrok.me/DiscordSRV/DiscordSRV/master/config/en/ConfigVersion\">" +
-                "https://config.pkrok.me/DiscordSRV/DiscordSRV/master/config/en/ConfigVersion</a><br>" +
+                "<a href=\"https://config.granny.dev/DiscordSRV/DiscordSRV/master/config/en/ConfigVersion\">" +
+                "https://config.granny.dev/DiscordSRV/DiscordSRV/master/config/en/ConfigVersion</a><br>" +
                 "<pre>(Full Path)</pre>" +
-                "<a href=\"https://config.pkrok.me/master/config/en/ConfigVersion\">" +
-                "https://config.pkrok.me/master/config/en/ConfigVersion</a><br>" +
+                "<a href=\"https://config.granny.dev/master/config/en/ConfigVersion\">" +
+                "https://config.granny.dev/master/config/en/ConfigVersion</a><br>" +
                 "<pre>(Assuming ORG=\"DiscordSRV\", PROJECT=\"DiscordSRV\")</pre>" +
-                "<a href=\"https://config.pkrok.me/master/config/ConfigVersion\">" +
-                "https://config.pkrok.me/master/config/ConfigVersion</a><br>" +
+                "<a href=\"https://config.granny.dev/master/config/ConfigVersion\">" +
+                "https://config.granny.dev/master/config/ConfigVersion</a><br>" +
                 "<pre>(Assuming ORG=\"DiscordSRV\", PROJECT=\"DiscordSRV\", LANG=\"en\")</pre>" +
-                "<a href=\"https://config.pkrok.me/config/ConfigVersion\">" +
-                "https://config.pkrok.me/config/ConfigVersion</a>" +
+                "<a href=\"https://config.granny.dev/config/ConfigVersion\">" +
+                "https://config.granny.dev/config/ConfigVersion</a>" +
                 "<pre>(Assuming ORG=\"DiscordSRV\", PROJECT=\"DiscordSRV\", LANG=\"en\", BRANCH=\"master\")</pre>";
     }
 }
