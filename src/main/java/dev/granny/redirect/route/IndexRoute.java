@@ -18,37 +18,19 @@
 
 package dev.granny.redirect.route;
 
+import dev.granny.redirect.Redirect;
 import spark.Request;
 import spark.Response;
 import spark.Route;
+
+import java.util.HashMap;
+
 
 public class IndexRoute implements Route {
 
     @Override
     public Object handle(Request request, Response response) throws Exception {
-        return "<h2><a href=\"https://github.com/granny/Redirect\">Config Redirect</a></h2>" +
-                "<p>Terribly built, but get's the job done</p>" +
-                "<h3>Paths that work (based on DiscordSRV's directory):</h3>" +
-                "<p>https://config.granny.dev/ORG/PROJECT/BRANCH/FILE/LANG/OPTION</p>" +
-                "<pre>(Full Path)</pre>" +
-                "<p>https://config.granny.dev/BRANCH/FILE/LANG/OPTION</p>" +
-                "<pre>(Assuming ORG=\"DiscordSRV\", PROJECT=\"DiscordSRV\")</pre>" +
-                "<p>https://config.granny.dev/BRANCH/FILE/OPTION</p>" +
-                "<pre>(Assuming ORG=\"DiscordSRV\", PROJECT=\"DiscordSRV\", LANG=\"en\")</pre>" +
-                "<p>https://config.granny.dev/FILE/OPTION</p>" +
-                "<pre>(Assuming ORG=\"DiscordSRV\", PROJECT=\"DiscordSRV\", LANG=\"en\", BRANCH=\"master\")</pre>" +
-                "<h3>Examples:</h3>" +
-                "<a href=\"https://config.granny.dev/DiscordSRV/DiscordSRV/master/config/en/ConfigVersion\">" +
-                "https://config.granny.dev/DiscordSRV/DiscordSRV/master/config/en/ConfigVersion</a><br>" +
-                "<pre>(Full Path)</pre>" +
-                "<a href=\"https://config.granny.dev/master/config/en/ConfigVersion\">" +
-                "https://config.granny.dev/master/config/en/ConfigVersion</a><br>" +
-                "<pre>(Assuming ORG=\"DiscordSRV\", PROJECT=\"DiscordSRV\")</pre>" +
-                "<a href=\"https://config.granny.dev/master/config/ConfigVersion\">" +
-                "https://config.granny.dev/master/config/ConfigVersion</a><br>" +
-                "<pre>(Assuming ORG=\"DiscordSRV\", PROJECT=\"DiscordSRV\", LANG=\"en\")</pre>" +
-                "<a href=\"https://config.granny.dev/config/ConfigVersion\">" +
-                "https://config.granny.dev/config/ConfigVersion</a>" +
-                "<pre>(Assuming ORG=\"DiscordSRV\", PROJECT=\"DiscordSRV\", LANG=\"en\", BRANCH=\"master\")</pre>";
+        HashMap<String, Object> model = new HashMap<>();
+        return Redirect.render(model, "templates/index.vm");
     }
 }

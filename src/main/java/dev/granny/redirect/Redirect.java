@@ -25,9 +25,12 @@ import dev.granny.redirect.route.GetConfigRoute;
 import dev.granny.redirect.route.IndexRoute;
 import spark.Request;
 import spark.Response;
+import spark.template.velocity.VelocityTemplateEngine;
+import spark.ModelAndView;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 import static spark.Spark.*;
 
@@ -53,5 +56,9 @@ public class Redirect {
     public static String notFoundRoute(Request req, Response res) {
         res.type("application/json");
         return "{\"message\":\"Custom 404\"}";
+    }
+
+    public static String render(Map<String, Object> model, String templatePath) {
+        return new VelocityTemplateEngine().render(new ModelAndView(model, templatePath));
     }
 }
