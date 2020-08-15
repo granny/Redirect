@@ -18,13 +18,9 @@
 
 package dev.granny.redirect.config;
 
+import com.github.kevinsawicki.http.HttpRequest;
 import lombok.Getter;
-import org.apache.commons.io.IOUtils;
 import org.jetbrains.annotations.NotNull;
-
-import java.io.IOException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 
 public class ConfigRedirect {
     private String org;
@@ -66,7 +62,7 @@ public class ConfigRedirect {
         this.lang = lang;
         this.option = option;
 
-        String page = requestHttp(getRawUrl());
+        String page = HttpRequest.get(getRawUrl()).body();
         String[] pageLines = page.split("\n");
         if (pageLines.length == 1) {
             System.out.println("Could not locate page/option.");
@@ -83,14 +79,6 @@ public class ConfigRedirect {
 
     public String getUrl() {
         return String.format(gitHubUrl, org, project, branch, file, lang, line != 0 ? "#L" + line : "");
-    }
-
-    private String requestHttp(String requestUrl) {
-        try {
-            return IOUtils.toString(new URL(requestUrl), StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            return "Failed to fetch URL: " + e.getMessage();
-        }
     }
 
     private void locateOption(@NotNull String[] split) {
