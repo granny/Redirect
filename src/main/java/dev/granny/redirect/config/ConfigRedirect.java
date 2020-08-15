@@ -38,14 +38,6 @@ public class ConfigRedirect {
     private static String rawGitHubUrl = "https://raw.githubusercontent.com/%s/%s/%s/src/main/resources/%s/%s.yml";
     private static String gitHubUrl = "https://github.com/%s/%s/blob/%s/src/main/resources/%s/%s.yml%s";
 
-    public ConfigRedirect(String org, String project, String branch, String file, String lang, String option) {
-        setValues(org, project, branch, file, lang, option);
-    }
-
-    public ConfigRedirect() {
-        setValues(null, null, null, null, null, null);
-    }
-
     public ConfigRedirect(@NotNull String pathInfo) {
         String[] pathArr = pathInfo.replaceAll("^/", "").split("/");
         switch (pathArr.length) {
@@ -64,7 +56,6 @@ public class ConfigRedirect {
             default:
                 setValues(null, null, null, null, null, null);
         }
-
     }
 
     private void setValues(String org, String project, String branch, String file, String lang, String option) {
