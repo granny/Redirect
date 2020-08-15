@@ -27,8 +27,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GetConfigRoute implements Route {
-    Map<String, ConfigRedirect> CACHE = new HashMap<>();
-    ConfigRedirect current;
+    private final Map<String, ConfigRedirect> CACHE = new HashMap<>();
+    private ConfigRedirect current;
 
     @Override
     public Object handle(Request request, Response response) throws Exception {
