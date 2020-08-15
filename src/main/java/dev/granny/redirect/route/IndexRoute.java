@@ -23,14 +23,15 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-import java.util.HashMap;
+import java.util.Map;
+import java.util.WeakHashMap;
 
 
 public class IndexRoute implements Route {
 
     @Override
     public Object handle(Request request, Response response) throws Exception {
-        HashMap<String, Object> model = new HashMap<>();
+        Map<String, Object> model = new WeakHashMap<>();
         return Redirect.render(model, "templates/index.vm");
     }
 }
