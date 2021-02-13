@@ -26,6 +26,8 @@ hs_err_pid*
 .settings
 .classpath
 .project
-/.idea/
 *.iml
 dependency-reduced-pom.xml
+.gradle
+.idea
+build
