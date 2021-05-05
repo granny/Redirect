@@ -1,37 +1,19 @@
-## Redirect
-Terribly built, but get's the job done
-### Paths that work (based on DiscordSRV's directory):
+# Redirect
+Redirects you to the location of an option in DiscordSRV's config files
 
-> https://config.granny.dev/ORG/PROJECT/BRANCH/FILE/LANG/OPTION
+## Examples
 
-`(Full Path)`
+https://<area>config.discordsrv.com/DiscordSRV/DiscordSRV/blob/`:branch`/src/main/resources/`:config`/`:lang`/`:option`  
+https://config.discordsrv.com/DiscordSRV/DiscordSRV/blob/master/src/main/resources/config/en/ConfigVersion
 
-> https://config.granny.dev/BRANCH/FILE/LANG/OPTION
+https://<area>config.discordsrv.com/DiscordSRV/DiscordSRV/`:branch`/`:config`/`:lang`/`:option`  
+https://config.discordsrv.com/DiscordSRV/DiscordSRV/master/config/en/ConfigVersion
 
-`(Assuming ORG="DiscordSRV", PROJECT="DiscordSRV")`
+https://<area>config.discordsrv.com/`:branch`/`:config`/`:lang`/`:option`  
+https://config.discordsrv.com/master/config/en/ConfigVersion
 
-> https://config.granny.dev/BRANCH/FILE/OPTION
+https://<area>config.discordsrv.com/`:branch`/`:config`/`:option`  
+https://config.discordsrv.com/master/config/ConfigVersion
 
-`(Assuming ORG="DiscordSRV", PROJECT="DiscordSRV", LANG="en")`
-
-> https://config.granny.dev/FILE/OPTION
-
-`(Assuming ORG="DiscordSRV", PROJECT="DiscordSRV", LANG="en", BRANCH="master")`
-
-### Examples:
-
-[https://config.granny.dev/DiscordSRV/DiscordSRV/master/config/en/ConfigVersion](https://config.granny.dev/DiscordSRV/DiscordSRV/master/config/en/ConfigVersion)
-
-`(Full Path)`
-
-[https://config.granny.dev/master/config/en/ConfigVersion](https://config.granny.dev/master/config/en/ConfigVersion)
-
-`(Assuming ORG="DiscordSRV", PROJECT="DiscordSRV")`
-
-[https://config.granny.dev/master/config/ConfigVersion](https://config.granny.dev/master/config/ConfigVersion)
-
-`(Assuming ORG="DiscordSRV", PROJECT="DiscordSRV", LANG="en")`
-
-[https://config.granny.dev/config/ConfigVersion](https://config.granny.dev/config/ConfigVersion)
-
-`(Assuming ORG="DiscordSRV", PROJECT="DiscordSRV", LANG="en", BRANCH="master")`
+https://<area>config.discordsrv.com/`:config`/`:option`  
+https://config.discordsrv.com/config/ConfigVersion
