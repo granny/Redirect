@@ -1,6 +1,6 @@
 /*
  * Redirect - A redirect web server for DiscordSRV's wiki
- * Copyright (C) 2020 granny
+ * Copyright (C) 2021 granny
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,47 +18,59 @@
 
 package dev.granny.redirect;
 
-import github.scarsz.configuralize.DynamicConfig;
-import github.scarsz.configuralize.Language;
-import github.scarsz.configuralize.ParseException;
-import dev.granny.redirect.route.GetConfigRoute;
-import dev.granny.redirect.route.IndexRoute;
-import spark.Request;
-import spark.Response;
-import spark.template.velocity.VelocityTemplateEngine;
-import spark.ModelAndView;
+import com.esotericsoftware.minlog.Log;
+import io.javalin.Javalin;
+import org.apache.commons.lang3.StringUtils;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Map;
 
-import static spark.Spark.*;
+import java.util.Arrays;
+import java.util.List;
+
+import static io.javalin.plugin.rendering.template.TemplateUtil.model;
 
 public class Redirect {
 
-    public static void main(String[] args) throws IOException, ParseException {
-        final DynamicConfig config;
+    List<String> defaultPaths = Arrays.asList(
+            "/DiscordSRV/DiscordSRV/blob/:branch/src/main/resources/:config/:lang/",
+            "/DiscordSRV/DiscordSRV/:branch/:config/:lang/",
+            "/:branch/:config/:lang/",
+            "/:branch/:config/",
 
-        config = new DynamicConfig(Language.EN);
-        config.addSource(Redirect.class, "config", new File("config.yml"));
-        config.saveAllDefaults();
-        config.loadAll();
+            "/alerts/",
+            "/config/",
+            "/linking/",
+            "/messages/",
+            "/synchronization/",
+            "/voice/"
+    );
 
-
-        staticFileLocation("/static/");
-        ipAddress(config.getString("Bind.IP"));
-        port(config.getInt("Bind.Port"));
-        get("/", new IndexRoute());
-        get("/*", new GetConfigRoute());
-        notFound(Redirect::notFoundRoute);
+    public static void main(String[] args) {
+        new Redirect(args);
     }
 
-    public static String notFoundRoute(Request req, Response res) {
-        res.type("application/json");
-        return "{\"message\":\"Custom 404\"}";
-    }
+    public Redirect(String[] args) {
 
-    public static String render(Map<String, Object> model, String templatePath) {
-        return new VelocityTemplateEngine().render(new ModelAndView(model, templatePath));
+        // start up the Javalin instance
+        Javalin app = Javalin.create(javalinConfig -> javalinConfig.addStaticFiles("/static")).start(
+                StringUtils.isNotBlank(System.getenv("IP"))
+                        ? System.getenv("REDIRECT_IP")
+                        : "0.0.0.0",
+                Integer.parseInt(StringUtils.isNotBlank(System.getenv("PORT"))
+                        ? System.getenv("REDIRECT_PORT")
+                        : "4567")
+        );
+
+        // set up a basic root page
+        app.get("/", ctx -> ctx.render("/static/index.vm", model("host", ctx.host())));
+
+        // iterate through defaultPaths
+        defaultPaths.forEach(path -> {
+            Log.info("Registering path: " + path + ":option");
+            app.get(path + ":option", Option::new);
+
+            Log.info("Registering path: " + path);
+            app.get(path, Option::new);
+        });
+
     }
 }
