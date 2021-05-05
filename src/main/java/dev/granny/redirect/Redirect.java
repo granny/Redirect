@@ -52,10 +52,10 @@ public class Redirect {
 
         // start up the Javalin instance
         Javalin app = Javalin.create(javalinConfig -> javalinConfig.addStaticFiles("/static")).start(
-                StringUtils.isNotBlank(System.getenv("IP"))
+                StringUtils.isNotBlank(System.getenv("REDIRECT_IP"))
                         ? System.getenv("REDIRECT_IP")
                         : "0.0.0.0",
-                Integer.parseInt(StringUtils.isNotBlank(System.getenv("PORT"))
+                Integer.parseInt(StringUtils.isNotBlank(System.getenv("REDIRECT_PORT"))
                         ? System.getenv("REDIRECT_PORT")
                         : "4567")
         );
