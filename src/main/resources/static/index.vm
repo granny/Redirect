@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" >
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Config Redirect</title>
+</head>
+<body>
+<div class="container border">
+    <div class="row justify-content-center border-bottom">
+        <div class="col-md text-center">
+            <h2><a href="https://github.com/granny/Redirect">Config Redirect</a></h2>
+            <p>Built for <a href="https://github.com/DiscordSRV/DiscordSRV">DiscordSRV</a></p>
+            <p>Redirects you to the location of an option in DiscordSRV's config files</p>
+            <p>Omitting ":option" will send you to that config file</p>
+        </div>
+    </div>
+    <div class="row justify-content-center pt-2 pb-2">
+        <div class="col-md justify-content-center">
+            <h3>Examples:</h3>
+            <p>
+                https://$host/DiscordSRV/DiscordSRV/blob/<code>:branch</code>/src/main/resources/<code>:config</code>/<code>:lang</code>/<code>:option</code><br>
+            <a href="https://$host/DiscordSRV/DiscordSRV/blob/master/src/main/resources/config/en/ConfigVersion">https://$host/DiscordSRV/DiscordSRV/blob/master/src/main/resources/config/en/ConfigVersion</a>
+            </p>
+            <p>
+                https://$host/DiscordSRV/DiscordSRV/<code>:branch</code>/<code>:config</code>/<code>:lang</code>/<code>:option</code><br>
+            <a href="https://$host/DiscordSRV/DiscordSRV/master/config/en/ConfigVersion">https://$host/DiscordSRV/DiscordSRV/master/config/en/ConfigVersion</a>
+            </p>
+            <p>
+                https://$host/<code>:branch</code>/<code>:config</code>/<code>:lang</code>/<code>:option</code><br>
+            <a href="https://$host/master/config/en/ConfigVersion">https://$host/master/config/en/ConfigVersion</a>
+            </p>
+            <p>
+                https://$host/<code>:branch</code>/<code>:config</code>/<code>:option</code><br>
+            <a href="https://$host/master/config/ConfigVersion">https://$host/master/config/ConfigVersion</a>
+            </p>
+            <p>
+                https://$host/<code>:config</code>/<code>:option</code><br>
+            <a href="https://$host/config/ConfigVersion">https://$host/config/ConfigVersion</a>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</html>
