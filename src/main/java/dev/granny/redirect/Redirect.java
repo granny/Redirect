@@ -34,7 +34,13 @@ public class Redirect {
             "/DiscordSRV/DiscordSRV/blob/:branch/src/main/resources/:config/:lang/",
             "/DiscordSRV/DiscordSRV/:branch/:config/:lang/",
             "/:branch/:config/:lang/",
-            "/:branch/:config/",
+
+            "/:branch/alerts/",
+            "/:branch/config/",
+            "/:branch/linking/",
+            "/:branch/messages/",
+            "/:branch/synchronization/",
+            "/:branch/voice/",
 
             "/alerts/",
             "/config/",
@@ -65,11 +71,12 @@ public class Redirect {
 
         // iterate through defaultPaths
         defaultPaths.forEach(path -> {
+            Log.info("Registering path: " + path);
+            app.get(path, Option::new);
+
             Log.info("Registering path: " + path + ":option");
             app.get(path + ":option", Option::new);
 
-            Log.info("Registering path: " + path);
-            app.get(path, Option::new);
         });
 
     }
