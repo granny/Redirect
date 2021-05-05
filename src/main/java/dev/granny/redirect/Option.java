@@ -33,7 +33,7 @@ public class Option {
     private final String option;
     private int line;
 
-    public Option(Context ctx) throws MalformedURLException {
+    public Option(Context ctx) {
         Map<String, String> pathParams = ctx.pathParamMap();
 
         String branch = pathParams.getOrDefault("branch", "master");
