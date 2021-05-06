@@ -63,7 +63,7 @@ public class Option {
                         branch, config, lang, line != 0 ? "#L" + line : ""
                 );
 
-                Log.info(String.format("Redirecting to %s/%s/%s", branch, config, lang));
+                Log.info(String.format("Redirecting to %s/%s/%s %s", branch, config, lang, option));
                 ctx.redirect(githubUrl);
             }
         } catch (MalformedURLException e) {
