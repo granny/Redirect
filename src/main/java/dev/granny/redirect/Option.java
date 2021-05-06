@@ -41,6 +41,7 @@ public class Option {
         String lang = pathParams.getOrDefault("lang", "en") + ".yml";
         this.option = pathParams.get("option");
 
+
         String rawGithubUrl = String.format(
                 "https://raw.githubusercontent.com/DiscordSRV/DiscordSRV/%s/src/main/resources/%s/%s",
                 branch, config, lang
@@ -50,9 +51,10 @@ public class Option {
             HttpRequest request = HttpRequest.get(new URL(rawGithubUrl));
             if (request.notFound()) {
                 Log.error("Could not locate page " + rawGithubUrl);
+                Log.error(ctx.path() + " " + ctx.endpointHandlerPath());
                 ctx.render("/static/could-not-locate.vm", model("link", rawGithubUrl, "host", ctx.host()));
             } else {
-                if (option != null) {
+                if (!option.equals("_")) {
                     locateOption(request.body().split("\n"));
                 }
 

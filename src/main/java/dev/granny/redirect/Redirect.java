@@ -31,23 +31,11 @@ import static io.javalin.plugin.rendering.template.TemplateUtil.model;
 public class Redirect {
 
     List<String> defaultPaths = Arrays.asList(
-            "/DiscordSRV/DiscordSRV/blob/:branch/src/main/resources/:config/:lang/",
-            "/DiscordSRV/DiscordSRV/:branch/:config/:lang/",
-            "/:branch/:config/:lang/",
-
-            "/:branch/alerts/",
-            "/:branch/config/",
-            "/:branch/linking/",
-            "/:branch/messages/",
-            "/:branch/synchronization/",
-            "/:branch/voice/",
-
-            "/alerts/",
-            "/config/",
-            "/linking/",
-            "/messages/",
-            "/synchronization/",
-            "/voice/"
+            "/DiscordSRV/DiscordSRV/blob/:branch/src/main/resources/:config/:lang/:option",
+            "/DiscordSRV/DiscordSRV/:branch/:config/:lang/:option",
+            "/:branch/:config/:lang/:option",
+            "/:branch/:config/:option",
+            "/:config/:option"
     );
 
     public static void main(String[] args) {
@@ -73,9 +61,6 @@ public class Redirect {
         defaultPaths.forEach(path -> {
             Log.info("Registering path: " + path);
             app.get(path, Option::new);
-
-            Log.info("Registering path: " + path + ":option");
-            app.get(path + ":option", Option::new);
 
         });
 

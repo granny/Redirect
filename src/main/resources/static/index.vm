@@ -15,7 +15,7 @@
             <h2><a href="https://github.com/granny/Redirect">Config Redirect</a></h2>
             <p>Built for <a href="https://github.com/DiscordSRV/DiscordSRV">DiscordSRV</a></p>
             <p>Redirects you to the location of an option in DiscordSRV's config files</p>
-            <p>Omitting ":option" will send you to that config file</p>
+            <p>Setting ":option" as "_" will send you to that config file</p>
         </div>
     </div>
     <div class="row justify-content-center pt-2 pb-2">
