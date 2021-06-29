@@ -1,4 +1,4 @@
-FROM gradle:4.7.0-jdk8-alpine AS build
+FROM gradle:7.1.0-jdk16-hotspot AS build
 COPY --chown=gradle:gradle . /src
 WORKDIR /src
 RUN gradle build --no-daemon
